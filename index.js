@@ -78,7 +78,7 @@ app.delete('/api/persons/:id', (request, response, next) => {
   })
 
 
-app.post('/api/persons',(request, response) => {
+app.post('/api/persons',(request, response, next) => {
     const body = request.body
 
     if (!body.name) {
@@ -100,6 +100,7 @@ app.post('/api/persons',(request, response) => {
               console.log(`added ${person.name} number ${person.number} to phonebook`)
               response.json(result)
         })
+        .catch(error => next(error))
     }
 })
 
