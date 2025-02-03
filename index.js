@@ -47,13 +47,16 @@ app.get('/api/persons', (request, response) => {
   })
 
 
-app.get('/info', (request, response) => {
-    response.send(`Phonebook has info for ${persons.length} people <br> ${new Date()}`)
+  app.get('/info', (request, response) => {
+    Person.countDocuments()
+        .then(count => {
+            response.send(`Phonebook has info for ${count} people <br> ${new Date()}`)
+        })
+        .catch(error => next(error))
 })
 
 
-app.get('/api/persons/:id', (request, response, ) => {
-    app.get('/api/notes/:id', (request, response, next) => {
+app.get('/api/persons/:id', (request, response, next) => {
         Person.findById(request.params.id)
           .then(person => {
             if (person) {
@@ -63,7 +66,6 @@ app.get('/api/persons/:id', (request, response, ) => {
             }
           })
           .catch(error => next(error))
-      })
 })
 
 
