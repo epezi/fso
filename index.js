@@ -54,19 +54,16 @@ app.post('/api/persons',(request, response) => {
         return response.status(400).json({ 
             error: 'number missing' 
         })
-    } if ( persons.find(person => person.name === body.name)) {
-        return response.status(400).json({ 
-            error: 'name must be unique'
-        })
+
     } else {
-        const person = {
-            "id": Math.floor(Math.random() * (1000)) + 1,
+        const person = new Person ({
             "name": body.name,
             "number": body.number
-        }
-        persons = persons.concat(person)
-    
-        response.json(person)
+        })
+        person.save().then(result => {
+              console.log(`added ${person.name} number ${person.number} to phonebook`)
+              response.json(person)
+        })
     }
 
    
