@@ -19,7 +19,17 @@ const personSchema = new mongoose.Schema({
         minlength: 3,
         required: true
     },
-    number: String,
+    number: {
+        type: String,
+        minlength: 8,
+        required: true,
+        validate: {
+            validator: function(value) {
+                return /^\d{2,3}-\d+$/.test(value);
+            },
+            message: 'must be at least 8 characters long and follow the format XX-XXXXXX or XXX-XXXXX.'
+        }
+    } 
 })
 
 personSchema.set('toJSON', {
