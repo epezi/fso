@@ -90,6 +90,10 @@ const App = () => {
         
         notification('notification',`Added ${personObject.name}`)
         })
+        .catch(error => {
+          console.log(error.response.data)
+          notification('error', error.response.data)
+        })
     }
   }
   
