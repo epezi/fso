@@ -92,7 +92,7 @@ const App = () => {
         })
         .catch(error => {
           console.log(error.response.data)
-          notification('error', error.response.data.toString())
+          notification('error', error.response.data.error.toString())
         })
     }
   }
