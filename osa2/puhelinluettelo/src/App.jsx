@@ -59,7 +59,7 @@ const App = () => {
           setPersons(persons.filter(person => person.id !== id))
           notification('notification',`Deleted ${personToDelete.name}`)
         })
-        .catch(error => {
+        .catch(() => {
           setPersons(persons.filter(person => person.id !== personToDelete.id))
           notification('error',`The person '${personToDelete.name}' was already removed from the server.`)
         })
@@ -107,7 +107,7 @@ const App = () => {
         setNewName('')
         setNewNumber('')
       })
-      .catch(error => {
+      .catch(() => {
         setPersons(persons.filter(person => person.id !== existingPerson.id))
         notification('error',`The person '${existingPerson.name}' was already removed from the server.`)
       })
