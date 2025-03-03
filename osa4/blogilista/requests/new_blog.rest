@@ -1,0 +1,9 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVlbWVsaSIsImlkIjoiNjdiODY0ODVhMzJiYmVjN2ZjMmUxYTY3IiwiaWF0IjoxNzQwMTM4NzU5fQ.1epDePZTju3ot3mrck3mFY314Bc6tOQNWGA3t_aNChs
+
+{
+    "title": "testi",
+    "author": "testeri",
+    "url": "testi.com"
+}

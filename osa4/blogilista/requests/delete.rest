@@ -1,0 +1,1 @@
+DELETE http://localhost:3001/api/persons/67a0a3e7fd9639eebb158650
